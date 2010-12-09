@@ -1,0 +1,237 @@
+-=aCodeGen=- 
+plug parser, get Compiler
+=================================================
+
+Examples of XML-IC and XML-3A files
+
+-----------------------------------
+XML-IC
+-----------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="dummyC">
+<function name="main" type="bool">
+<varList>
+<var type="int">i</var>
+<var type="int">j</var>
+<var type="int">k</var>
+</varList>
+<mstmt type="=">
+<val type="int">i</val>
+<val type="number">10</val>
+</mstmt>
+<mstmt type="=">
+<val type="int">j</val>
+<val type="number">5</val>
+</mstmt>
+<mstmt type="=">
+<val type="int">a</val>
+<val type="stmt">
+<stmt type="*">
+<val type="number">j</val>
+<val type="int">5</val>
+</stmt>
+</val>
+</mstmt>
+<mstmt type="="> <!-- k = 10 + 10 + 5 + j*1 -->
+<val type="int">k</val>
+<val type="stmt">
+<stmt type="+">
+<val type="number">10</val>
+<val type="stmt">
+<stmt type="+">
+<val type="number">10</val>
+<val type="stmt">
+<stmt type="+">
+<val type="number">5</val>
+<val type="stmt">
+<stmt type="*">
+<val type="number">j</val>
+<val type="int">1</val>
+</stmt>
+</val>
+</stmt>
+</val>
+</stmt>
+</val>
+</stmt>
+</val>
+</mstmt>
+<mstmt type="=">
+<val type="int">l</val>
+<val type="stmt">
+<stmt type="*">
+<val type="number">j</val>
+<val type="int">5</val>
+</stmt>
+</val>
+</mstmt>
+<mstmt type="="> <!-- k = 10 + 1 * j + 5 + 10 -->
+<val type="int">m</val>
+<val type="stmt">
+<stmt type="+">
+<val type="stmt">
+<stmt type="+">
+<val type="number">10</val>
+<val type="stmt">
+<stmt type="+">
+<val type="stmt">
+<stmt type="*">
+<val type="number">j</val>
+<val type="int">1</val>
+</stmt>
+</val>
+<val type="number">5</val>
+</stmt>
+</val>
+</stmt>
+</val>
+<val type="number">10</val>
+</stmt>
+</val>
+</mstmt>
+<mstmt type="return">
+<val type="bool">true</val>
+</mstmt>
+</function>
+</class>
+
+
+--------------------------------
+XML-3A (3Address Code From It)
+--------------------------------
+<class name="dummyC">
+<function name="main" type="bool">
+<mstmt type="=">
+<istmt type="=">
+<val type="temp">i</val>
+<val type="int">10</val>
+</istmt>
+</mstmt>
+<mstmt type="=">
+<istmt type="=">
+<val type="temp">j</val>
+<val type="int">5</val>
+</istmt>
+</mstmt>
+<mstmt type="=">
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR1</val>
+<val type="stmt">
+<stmt type="*">
+<val type="int">5</val>
+<val type="int">j</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">a</val>
+<val type="int">TMPqwertyuiopVAR1</val>
+</istmt>
+</mstmt>
+<mstmt type="=">
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR1</val>
+<val type="stmt">
+<stmt type="*">
+<val type="int">1</val>
+<val type="int">j</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR2</val>
+<val type="stmt">
+<stmt type="+">
+<val type="int">TMPqwertyuiopVAR1</val>
+<val type="int">5</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR3</val>
+<val type="stmt">
+<stmt type="+">
+<val type="int">TMPqwertyuiopVAR2</val>
+<val type="int">10</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR4</val>
+<val type="stmt">
+<stmt type="+">
+<val type="int">TMPqwertyuiopVAR3</val>
+<val type="int">10</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">k</val>
+<val type="int">TMPqwertyuiopVAR4</val>
+</istmt>
+</mstmt>
+<mstmt type="=">
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR1</val>
+<val type="stmt">
+<stmt type="*">
+<val type="int">5</val>
+<val type="int">j</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">l</val>
+<val type="int">TMPqwertyuiopVAR1</val>
+</istmt>
+</mstmt>
+<mstmt type="=">
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR1</val>
+<val type="stmt">
+<stmt type="*">
+<val type="int">1</val>
+<val type="int">j</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR2</val>
+<val type="stmt">
+<stmt type="+">
+<val type="int">5</val>
+<val type="int">TMPqwertyuiopVAR1</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR3</val>
+<val type="stmt">
+<stmt type="+">
+<val type="int">TMPqwertyuiopVAR2</val>
+<val type="int">10</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">TMPqwertyuiopVAR4</val>
+<val type="stmt">
+<stmt type="+">
+<val type="int">10</val>
+<val type="int">TMPqwertyuiopVAR3</val>
+</stmt>
+</val>
+</istmt>
+<istmt type="=">
+<val type="temp">m</val>
+<val type="int">TMPqwertyuiopVAR4</val>
+</istmt>
+</mstmt>
+<mstmt type="return"/>
+</function>
+</class>
+
+====================================================
+====================================================
+
+

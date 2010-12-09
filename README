@@ -1,0 +1,37 @@
+-=aCodeGen=- 
+plug parser, get Compiler
+
+[] to create a distribute Software Development environment via a WebPage like IDE
+
+[] to create a Plug-n-Play Code Generation Tool providing quick Compiler Development
+
+[] a Common Intermediate Language for all Development Language in XML Architecture
+
+[] using even other coding languages... 
+   i.e. non-desktop-programing language for Desktop Application Development 
+   implementing a suitable parser AND same for Desktop-to-Web
+================================================
+
+[] mainly I'll be developing generator for 
+	+ XML-3A, and 
+	+ ASM code from the XML-IC 
+	that needed to be generated from the Parser of any language that want to Plug-in this service 
+
+=================================================
+====================================================
+
+[] about the power of it, believe me... leave the final state even at intermediate state of this technology we'll be able to see an entire new style of application development with few basic features like:
+> any language can be used as a Platform Independent Language
+> even Web Prog. Languages can be used for Desktop App. Prog.
+> a truly unique and dynamic, new style of Distributed Dynamic Environment
+I think to begin with powers this is not all but enough to support the cause
+Yes, you are right we'd need a hell lot of data for little core method... but thats the backdrop of entire XML tech., but that is only generated at Run-Time, its not need to be stored...
+"Look its this way... suppose you like java... write your code in Java... Then compiler will use use Java Parser compatible with my Code Generator to generate the reqd. XML further processed by my CodeGen, and few other reqd processes performed"
+
+[] yes this will be shared cross over the internet
+
+[] i said the goal is to enable any prog. language to use the code gen., to support such architecture Meta-Object Facility (somewhat base for XMI) isn't enough... so needed a new one, so using a new one 
+
+====================================================
+
+
